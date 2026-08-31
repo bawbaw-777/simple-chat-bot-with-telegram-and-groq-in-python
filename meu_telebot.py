@@ -1,18 +1,15 @@
+import os
 import telebot
 from groq import Groq
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
 
-TOKEN_DO_GROQ = os.getenv("MEU_TOKEN_GROQ")
-TELEBOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
+MEU_TOKEN_GROQ = os.getenv("MEU_TOKEN_GROQ")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 
-meu_client = Groq(api_key=TOKEN_DO_GROQ)
-
-my_projetc_bot = telebot.TeleBot(TELEBOT_TOKEN)
-
-meu_client = Groq(api_key=TOKEN_DO_GROQ)
+meu_client = Groq(api_key=MEU_TOKEN_GROQ)
+my_projetc_bot = telebot.TeleBot(TELEGRAM_TOKEN)
 
 @my_projetc_bot.message_handler(commands= ['Help', 'start'])
 def boas_vindas(mensagem):
